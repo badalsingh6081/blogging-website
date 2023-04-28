@@ -1,0 +1,73 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+
+{% block style %}
+
+<link rel="stylesheet" href="{% static 'log/css/styleprofiles.css' %}">
+
+{% endblock style %}
+
+{% block msg %} 
+{% if messages %}
+{% for message in messages %}
+<small {% if messages.tags %} class="{{message.tags}}" {% endif %}>
+  <span class="{{message.tags}}" >{{ message }}</span>
+</small>
+{% endfor %}
+{% endif %} 
+{% endblock msg %}
+
+
+{% block content %}
+
+<div class="col-sm-6 offset-sm-3 div">
+  <div class="div2">
+    <h1 class="mt-5 ml-8" >Profile Page {{name}}</h1>
+
+    <div class="main">
+
+      {% if form.non_field_errors %}
+      {% for error in form.non_field_errors %}
+      <p>{{error}} </p>
+      {% endfor %}
+      {% endif %}
+
+
+
+    
+
+
+
+      <form action="" method="post" novalidate>
+        {% csrf_token %}
+        {% for fm in form %}
+        <div class="form-group">
+
+          {{fm.label_tag}}{{fm}}
+        </div>
+        {{fm.errors|striptags}} 
+        {% endfor %}
+        <input type="submit" value="save" class="form-control btn btn-success mt-4">
+      </form>
+
+    
+
+
+        <a href="{% url 'dashboard' %} " class="form-control btn btn-outline-warning mt-2">Dashboard</a>
+
+        <a href="{% url 'changepass' %}" class="form-control btn btn-outline-dark mt-2">Change Password</a>
+
+        <a href="{% url 'resetemail' %}" class="form-control btn btn-outline-danger mt-2">Reset Password</a>
+       
+
+  
+
+      
+
+    </div>
+  </div>
+</div>
+
+
+{% endblock content %}

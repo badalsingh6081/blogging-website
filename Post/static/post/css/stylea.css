@@ -1,0 +1,84 @@
+*{  
+    margin: 0;
+    padding: 0;
+    /* font-family: 'satisfy',cursive; */
+    box-sizing: border-box;
+}
+.container{
+    width: 100%;
+}
+.hero{
+    width: 100%;
+    height: 100vh;
+    background-image:  url(stone.jpg);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+form{
+    width: 90%;
+    max-width: 600px;
+}
+.input-group{
+    margin-bottom: 30px;
+    position: relative;
+    
+}
+input,textarea{
+    width: 100%;
+    padding: 10px;
+    outline: 0;
+    border: 1px solid #fff;
+    color: #fff;
+    background: transparent;
+    font-size: 15px;
+}
+
+label{
+    height: 100%;
+    position: absolute;
+    left: 10;
+    top: 0;
+    padding: 10px;
+    color: #fff;
+    cursor: text;
+    transition: 0.2s;
+    
+}
+button{
+    border-radius:15px 15px;
+    padding: 10px 0;
+    color: #fff;
+    outline: none;
+    background:transparent;
+    border: 1px solid #fff;
+    width: 100%;
+    cursor: pointer;
+}
+input:focus~label,
+input:valid~label,
+textarea:focus~label,
+textarea:valid~label
+{
+    top: -35px ;
+    font-size: 14px;
+}
+.row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.row .input-group{
+    flex-basis: 50%;
+}
+.contact
+{
+    color: rgb(232, 204, 169); 
+    margin-left: 213px;
+    margin-bottom: 50px;
+    text-decoration-line:underline;
+    text-decoration-color: bisque;
+}

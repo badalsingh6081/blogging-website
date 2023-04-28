@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    
+    /* font-family: 'sacramento'; */
+    background: linear-gradient(-205deg,#ed9f89ca,#6c71fa);
+
+}
+.div{
+    
+    margin-top: 50px;
+    height: 550px;
+    
+    background: linear-gradient(135deg,#6c71fa,#ed9f89ca);
+    display: flex;
+    justify-content:center;
+    align-content: center;
+    box-shadow: 10px 10px 10px rgb(91, 88, 88);
+    border-radius: 20px;
+}
+
+.main{
+    position: relative;
+    top: 150px;
+    background: linear-gradient(-205deg,#ed9f89ca,#6c71fa);
+    
+    border-radius: 15px;
+    width: 35vw;
+    margin-left: 10px;
+    padding: 6px;
+    box-shadow: 10px 10px 10px rgb(91, 88, 88);
+}
+.form{
+    padding: 3px 3px 0 3px;
+}
+.input{
+    margin: 7px 2px;
+    background-color:rgb(254, 251, 251,0);
+    
+}

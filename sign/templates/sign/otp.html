@@ -1,0 +1,53 @@
+
+
+{%  extends 'core/base.html' %}
+{% load static %}
+
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'sign/css/style1.css' %}">
+{% endblock style %}
+    
+{% block msg %}
+
+ 
+{% if messages %}
+{% for message in messages %}
+<small {% if messages.tags %} class="{{message.tags}}" {% endif %}>
+  <span class="{{message.tags}}" >{{ message }}</span>
+</small>
+{% endfor %}
+{% endif %} 
+
+{% endblock msg %}
+
+
+{% block content %}
+
+<div class="container ">
+          <div class="heading"><h1>OTP</h1></div>
+            <form  action="{% url 'ot' %}" method="POST">
+              {% csrf_token %}
+          
+             <div class="card-details mt-4 "> 
+                 
+                 <div class="row">
+                       <div class="card-box  form-group mb-3">
+                           <span class="details form-group ">OTP</span>
+                           <input class="form-control input" name="otp" type="text" placeholder="Enter your otp">
+                          </div>
+                      </div>
+                  
+
+              </div>
+              <div class="button mt-3">
+                  <input class="input " type="submit" value="Submit">
+              </div>
+              <div class="text-center mt-3">
+                  <a href="{% url 'resend' %}" class="btn btn-outline-info  mr-5
+                  ">Resend OTP</a>
+                </div>
+  </div>   
+
+{% endblock content %}
+       

@@ -1,0 +1,57 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+
+{% block style %}
+
+<link rel="stylesheet" href="{% static 'post/css/stylea.css' %}">
+{% endblock style %}
+
+{% block msg %} {% endblock msg %}
+
+{% block content %}
+
+
+
+<div class="container">
+    <div class="row">
+
+        <div class="hero ">
+
+            <form class="form" action="{% url 'editpost' post.id %}" method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <h1 class="contact">Update Post</h1>
+
+                    <div class="input-group">
+                        <input class="input" type="text" name="name" id="name" value="{{post.name}} " required>
+                        <label for="name"><i class="fa-solid fa-user"></i> Your Name</label>
+                    </div>
+
+
+                    <div class="input-group">
+                        <input class="input" value="{{post.date}}"  name="date" type="date" id="date" required>
+                        <label for="date"></label>
+                    </div>
+                </div>
+
+
+                <div class="input-group">
+                    <input class="input" type="text" value="{{post.title}}" name="title" id="title" required>
+                    <label for="title"><i class="fas fa-envelope"></i> Title</label>
+                </div>
+
+
+                <div class="input-group">
+                    <textarea class="textarea" name="desc" value="badal" default="{{post.badal}}" id="desc" cols="10" rows="8"
+                        required></textarea>
+                    <label for="desc"><i class="fas fa-comments"></i> Description</label>
+                </div>
+
+                <button type="submit"> Save <i class="fas fa-paper-plane"></i></button>
+                <button type="text" class="mt-2"> Cancel </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

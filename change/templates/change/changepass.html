@@ -1,0 +1,56 @@
+
+{%  extends 'core/base.html' %}
+{% load static %}
+
+
+{% block style %}
+
+<link rel="stylesheet" href="{% static 'change/css/stylechangepas.css' %}">
+
+{% endblock style %}
+    
+{% block msg %} {% endblock msg %}
+
+
+{% block content %}
+
+
+<div class="col-sm-6 offset-sm-3 div" >
+  <div class="div2">
+
+      <div class="main">
+
+<!-- <h1>Change Password using old password</h1> -->
+<form action="" method="POST" novalidate>
+    {% if form.non_field_errors %}
+      {% for error in form.non_field_errors %}
+        {{error}}
+      {% endfor %} 
+    {% endif %}
+    {% csrf_token %}
+
+    {% for fm in form %}
+     <div class="form-group">
+
+       {{fm.label_tag}}
+       {{fm}}
+     </div>
+     {{fm.errors|striptags}}
+    {% endfor %}
+    <div class="form-group mt-4 p-1">
+
+      <input type="submit" class="form-control btn btn-success" value="Submit">
+    </div>
+    
+</form> 
+
+  
+<a href="{% url 'profile' %}" class="form-control btn btn-outline-warning" value="profile">Profile</a>
+
+    <a href="{% url 'logout' %}" class="form-control btn btn-outline-danger mt-2" value="logout">Logout</a>
+  
+  
+      </div>
+      </div>
+      </div>
+{% endblock content %}

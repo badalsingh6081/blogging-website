@@ -1,0 +1,63 @@
+
+{%  extends 'core/base.html' %}
+{% load static %}
+
+
+{% block style %}
+
+<link rel="stylesheet" href="{% static 'log/css/styleloginn.css' %}">
+
+{% endblock style %}
+    
+{% block msg %} 
+{% if messages %}
+{% for message in messages %}
+<small {% if messages.tags %} class="{{message.tags}}" {% endif %}>
+    <span class="{{message.tags}}" >{{ message }}</span>
+</small>
+{% endfor %}
+{% endif %} 
+{% endblock msg %}
+
+
+{% block content %}
+
+<div class="container ">
+    
+    <div class="row">
+
+        <div class="heading">Log In</div>
+          <form  action="{% url 'login' %}" method="POST">
+            {% csrf_token %}
+        
+           <div class="card-details mt-4 "> 
+               
+                     <div class="card-box  form-group mb-3">
+                         <span class="details form-group ">Username</span>
+                         <input class="form-control input" name="username" type="text" placeholder="Enter your name" required>
+                        </div>
+                    </div>
+                
+                <div class="row">
+
+                    <div class="card-box form-group">
+                        <span class="details">Passsword</span>
+                        <input class="input  form-control" name="password" type="password"   placeholder="Password" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="button mt-3">
+                <input class="input " type="submit" value="Log In">
+            </div>
+         </form>   
+            <div class="text-center mt-3">
+                <a href="{% url 'signup' %}" class="btn btn-outline-info  mr-5
+                ">Create Account</a>
+            </div>
+</div>
+</div>
+
+
+{% endblock content %}
+       
