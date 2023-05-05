@@ -1,0 +1,11 @@
+
+body{
+    color: antiquewhite;
+    background:rgb(24, 24, 23);
+}
+.div{margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

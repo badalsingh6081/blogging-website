@@ -18,29 +18,35 @@ def sign_up(request):
         password= request.POST.get('password')
         passwords= request.POST.get('passwords')
         first=User.objects.filter(username=username).first()
+        second=User.objects.filter(email=email).first()
         
         if first is  None :
-            if password==passwords:
+            if second is None:
+
+                if password==passwords:
+                    
+                    user=User(first_name=name,username=username,     email=email,    last_name=lastname)
+                    user.set_password(password)
+                    cache.set('user',user,70)
+                    # request.session['user']=user
+                    cache.set('email',email,70)
+                    # request.session['email']=email
+                    
+                    get(request,email)
+                    cache.set('verify','verify',70)
+                    messages.success(request,'Otp Sent  , if not please enter correct email or resend otp')
+                    return redirect('/acc/otp/')
                 
-                user=User(first_name=name,username=username,     email=email,    last_name=lastname)
-                user.set_password(password)
-                cache.set('user',user,70)
-                # request.session['user']=user
-                cache.set('email',email,70)
-                # request.session['email']=email
-                
-                get(request,email)
-                cache.set('verify','verify',70)
-                messages.success(request,'Otp Sent')
-                return redirect('/acc/otp/')
-            
+                else:
+                    messages.warning(request,"Password din't match , Please enter correct confirmation password ")
+                    return redirect('/acc/signup/')    
             else:
-                messages.warning(request,"Password din't match , Please enter correct confirmation password ")
+                messages.warning(request,"User already registered with this email , Please enter another email")
                 return redirect('/acc/signup/')    
 
-
+            
         else:
-            messages.warning(request,'Uaername Alredy Exist,  Please Enter Different Username')
+            messages.warning(request,'Uaername Alredy Registered,  Please Enter Different Username')
             return redirect('/acc/signup/')      
     return render(request,'sign/signup.html',context)
 

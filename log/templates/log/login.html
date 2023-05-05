@@ -5,7 +5,7 @@
 
 {% block style %}
 
-<link rel="stylesheet" href="{% static 'log/css/styleloginn.css' %}">
+<link rel="stylesheet" href="{% static 'log/css/stylelogin.css' %}">
 
 {% endblock style %}
     
@@ -54,6 +54,10 @@
             <div class="text-center mt-3">
                 <a href="{% url 'signup' %}" class="btn btn-outline-info  mr-5
                 ">Create Account</a>
+            </div>
+            <div class="text-center mt-3">
+                <a href="{% url 'password_reset' %}" class="btn btn-outline-danger mr-5
+                ">Forget Password</a>
             </div>
 </div>
 </div>

@@ -1,0 +1,26 @@
+.div{
+    position: relative;
+    top: 170px;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-content: center;
+}
+.menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+
+}
+.heading{
+    
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+}
+body{
+    color: antiquewhite;
+    background:rgb(24, 24, 23);
+}

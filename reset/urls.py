@@ -1,4 +1,4 @@
-"""webs URL Configuration
+"""resetpass URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
@@ -14,15 +14,22 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path,include
-# from sign import urls
+from django.urls import path
+from   . import views as v
+from django.contrib.auth import views as auth_views
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('acc/', include('sign.urls')),
-    path('acc/', include('log.urls')),
-    path('', include('Post.urls')),
-    path('acc/', include('contact.urls')),
-    path('acc/', include('core.urls')),
-    path('acc/', include('change.urls')),
-    path('acc/', include('reset.urls')),
+
+
+    path('password_reset/',v.passwordresetview.as_view(),name='password_reset'),
+    path('password_reset/done/',v.passwordresetdone.as_view(),name='password_reset_done'),
+    path('reset/<uidb64>/<token>/',v.passwordresetconfirm.as_view(),name='password_reset_confirm'),
+    path('reset/done/',v.passwordresetcomplete.as_view(),name='password_reset_complete'),
+    
+
+
+
+
 ]
